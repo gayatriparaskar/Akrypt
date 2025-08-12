@@ -40,7 +40,7 @@ const About = () => {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">
                 We are a dynamic IT solutions provider based in Burhanpur, 
-                Madhya Pradesh, dedicated to empowering businesses through 
+                Madhya Pradesh,India dedicated to empowering businesses through 
                 tailored technology services that drive efficiency and security.
               </p>
               
@@ -76,7 +76,7 @@ const About = () => {
           <div className="relative">
             <div className="card-glow-strong p-12 rounded-3xl text-center animate-glow">
               <div className="text-6xl font-bold gradient-text text-glow mb-4">
-                75+
+                50+
               </div>
               <div className="text-2xl font-semibold text-foreground mb-2">
                 Projects Delivered
