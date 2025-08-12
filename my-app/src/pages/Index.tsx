@@ -333,8 +333,8 @@ export default function Index() {
                 empowering businesses through tailored technology services that drive efficiency and security.
               </p>
               <p className="text-lg text-slate-300 mb-10 leading-relaxed">
-                Established in 2024, our mission is to elevate technology for businesses by offering innovative
-                solutions and exceptional support. We help clients thrive in the digital landscape through
+                Established in 2024, our mission is to elevate technology for businesses in India by offering innovative
+                solutions and exceptional support. We help clients thrive in the digital landscape in India through
                 comprehensive services ranging from web development to social media marketing.
               </p>
               
