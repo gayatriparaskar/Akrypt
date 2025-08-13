@@ -4,21 +4,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       text: "TechFlow delivered an exceptional web application that exceeded our expectations. Their technical expertise and attention to detail are outstanding.",
-      author: "Sarah Johnson",
+      author: "Shubham Patel",
       position: "CEO, Digital Ventures",
       rating: 5,
       highlighted: false
     },
     {
       text: "Working with TechFlow was a game-changer for our startup. They built a scalable platform that helped us grow 300% in just 6 months.",
-      author: "Michael Chen", 
+      author: "Mahendra Singh", 
       position: "Founder, StartupLab",
       rating: 5,
       highlighted: false
     },
     {
       text: "The team at TechFlow is incredibly professional and delivered our enterprise solution on time and within budget. Highly recommended!",
-      author: "Emily Rodriguez",
+      author: "Nisha Mehra",
       position: "CTO, Enterprise Corp",
       rating: 5,
       highlighted: true

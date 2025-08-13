@@ -164,15 +164,13 @@ const Projects = () => {
     },
   ];
 
- const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-slide every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev === projects.length - 1 ? 0 : prev + 1
-      );
-    }, 1000); // speed in ms (2000ms = 2s)
+      setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    }, 2000); // speed in ms (2000ms = 2s)
     return () => clearInterval(interval);
   }, [projects.length]);
 
@@ -190,90 +188,97 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
- <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
-      {/* Slides Container */}
-      <div
-        className="flex transition-transform duration-500 ease-linear"
-        style={{
-          transform: `translateX(-${currentIndex * 320}px)` // 300px card + 20px gap
-        }}
-      >
-        {projects.map((project, index) => (
+        <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
+          {/* Slides Container */}
           <div
-            key={index}
-            className="group rounded-2xl overflow-hidden card-glow hover:card-glow-strong transition-all duration-500 relative min-w-[300px] max-w-[300px] h-[400px] flex-shrink-0 bg-white/5 backdrop-blur-lg border border-white/10 hover:border-primary/50 shadow-lg hover:shadow-primary/30 mx-2"
+            className="flex transition-transform duration-500 ease-linear"
+            style={{
+              transform: `translateX(-${currentIndex * 320}px)`, // 300px card + 20px gap
+            }}
           >
-            {/* Image Container */}
-            <div className="h-44 relative flex items-center justify-center overflow-hidden">
-              <Badge className="absolute top-4 right-4 text-white bg-black/50">
-                {project.status}
-              </Badge>
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group rounded-2xl overflow-hidden card-glow hover:card-glow-strong transition-all duration-500 relative min-w-[300px] max-w-[300px] h-[400px] flex-shrink-0 bg-white/5 backdrop-blur-lg border border-white/10 hover:border-primary/50 shadow-lg hover:shadow-primary/30 mx-2"
+              >
+                {/* Image Container */}
+                <div className="h-44 relative flex items-center justify-center overflow-hidden">
+                  <Badge className="absolute top-4 right-4 text-white bg-black/50">
+                    {project.status}
+                  </Badge>
 
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
 
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <Button
-                  variant="outline"
-                  className="border-primary/50 bg-black/50 text-white hover:bg-primary/70"
-                  onClick={() => navigate(`/projectDetail/${project.id}`)}
-                >
-                  View Details
-                </Button>
-              </div>
-            </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <Button
+                      variant="outline"
+                      className="border-primary/50 bg-black/50 text-white hover:bg-primary/70"
+                      onClick={() => navigate(`/projectDetail/${project.id}`)}
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </div>
 
-            {/* Info Section */}
-            <div className="p-4 flex flex-col gap-2">
-              <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-sm text-gray-300 line-clamp-2">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1">
-                {project.tech?.map((t, i) => (
-                  <span
-                    key={i}
-                    className="px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full"
-                  >
-                    {t}
-                  </span>
-                ))}
+                {/* Info Section */}
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 line-clamp-2">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.tech?.map((t, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-auto text-xs text-gray-400 space-y-1">
+                    <p>
+                      <strong>Category:</strong> {project.category}
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="border-primary/50 bg-black/50 text-white hover:bg-primary/70 px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full float-right"
+                      onClick={() => navigate(`/projectDetail/${project.id}`)}
+                    >
+                      View Details
+                    </Button>
+                    <p>
+                      <strong>Duration:</strong> {project.duration}
+                    </p>
+                    <p>
+                      <strong>Team:</strong> {project.team}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="mt-auto text-xs text-gray-400 space-y-1">
-                <p>
-                  <strong>Category:</strong> {project.category}
-                </p>
-                <p>
-                  <strong>Duration:</strong> {project.duration}
-                </p>
-                <p>
-                  <strong>Team:</strong> {project.team}
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* Dots Navigation */}
-      <div className="flex justify-center mt-4 gap-2">
-        {projects.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              index === currentIndex ? "bg-blue-500" : "bg-gray-400"
-            }`}
-          />
-        ))}
+          {/* Dots Navigation */}
+          <div className="flex justify-center mt-4 gap-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </section>
   );
 };
