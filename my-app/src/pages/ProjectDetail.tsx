@@ -51,6 +51,7 @@ import mangatramJewelers1 from "../assests/mangatram-jewelers 1.jpeg";
 import mangatramJewelers2 from "../assests/mangatram-jewelers 2.jpeg";
 import mangatramJewelers3 from "../assests/mangatram-jewelers 3.jpeg";
 import { Header } from "@radix-ui/react-accordion";
+import CursorTrail from "@/components/CursorTrail";
 
 interface ProjectData {
   id: string;
@@ -609,6 +610,8 @@ export default function ProjectDetail() {
   return (
     <>
     <div className="min-h-screen bg-background">
+      <div className="relative">
+        <CursorTrail/>
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
@@ -851,6 +854,7 @@ export default function ProjectDetail() {
           </motion.div>
         </div>
       </section>
+      </div>
     </div>
     </>
   );
