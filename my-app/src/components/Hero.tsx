@@ -1,68 +1,49 @@
-import { Button } from "@/components/ui/button";
-import { Rocket, Eye, Target, Users, Calendar, Headphones } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-const Hero = () => {
-  const stats = [
-    { icon: Target, value: "75+", label: "Projects Delivered" },
-    { icon: Users, value: "40+", label: "Happy Clients" },
-    { icon: Calendar, value: "2024", label: "Established", highlighted: true },
-    { icon: Headphones, value: "24/7", label: "Support" },
-  ];
-
+export default function Hero() {
   return (
-    <section className="min-h-screen pt-32 pb-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 animate-pulse-slow" />
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Main CTA Buttons */}
-        <div className="text-center mb-16">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 py-6 animate-glow">
-              <Rocket className="w-5 h-5 mr-2" />
-              Start Your Project
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6">
-              <Eye className="w-5 h-5 mr-2" />
-              View Our Work
-            </Button>
-          </div>
-        </div>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={index}
-                className={`p-8 rounded-2xl backdrop-blur-lg transition-all duration-500 hover:scale-105 ${
-                  stat.highlighted 
-                    ? 'card-glow-strong animate-glow' 
-                    : 'card-glow hover:shadow-glow-strong'
-                }`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold mb-2 gradient-text text-glow">
-                    {stat.value}
-                  </div>
-                  <div className="text-muted-foreground font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+      {/* Background glow effects */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 -right-32 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
       </div>
+
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 text-center px-4"
+      >
+        {/* Badge */}
+        <span className="inline-block px-4 py-1 mb-6 text-sm font-medium tracking-wide text-pink-300 bg-pink-500/10 border border-pink-500/30 rounded-full backdrop-blur-sm shadow-[0_0_15px_rgba(236,72,153,0.6)]">
+          Empowering Businesses Through Technology
+        </span>
+
+        {/* Heading */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-[0_0_25px_rgba(236,72,153,0.6)]">
+          Transform Your <span className="text-pink-400">Digital Future</span>
+        </h1>
+
+        {/* Subheading */}
+        <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
+          Innovative solutions designed to drive your business forward with
+          cutting-edge technology and creative expertise.
+        </p>
+
+        {/* CTA Button */}
+        <div className="mt-8">
+          <a
+            href="#services"
+            className="inline-flex items-center px-6 py-3 text-lg font-medium text-white rounded-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 shadow-lg shadow-pink-500/30 transition-all"
+          >
+            Get Started
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </a>
+        </div>
+      </motion.div>
     </section>
   );
-};
-
-export default Hero;
+}

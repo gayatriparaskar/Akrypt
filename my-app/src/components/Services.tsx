@@ -1,7 +1,13 @@
-import { Smartphone, Palette, BarChart3, Sparkles } from "lucide-react";
+import { Smartphone, Palette, BarChart3, Sparkles, Monitor } from "lucide-react";
 
 const Services = () => {
   const services = [
+    {
+      icon: Monitor,
+      title: "Web Development",
+      description: "Responsive and high-performance websites tailored to your business needs",
+      color: "from-purple-500 to-pink-500"
+    },
     {
       icon: Smartphone,
       title: "App Development",

@@ -203,7 +203,7 @@ All colors MUST be HSL.
 
 @keyframes scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-100%); }
 }
 
 @keyframes fadeIn {

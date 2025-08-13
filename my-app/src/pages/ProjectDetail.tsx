@@ -612,6 +612,7 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-background">
       <div className="relative">
         <CursorTrail/>
+      
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
@@ -624,7 +625,7 @@ export default function ProjectDetail() {
               to="/"
               className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-4 h-4 mr-2 border-2 rounded-full" />
               Back to Home
             </Link>
 
